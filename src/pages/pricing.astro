@@ -57,20 +57,22 @@ const pricing = [
 
     <div class="grid md:grid-cols-3 gap-10 mx-auto max-w-6xl mt-12">
       {
-        pricing.map((item) => (
-          <div class={`flex flex-col p-8 rounded-2xl border ${item.popular ? 'border-indigo-500 shadow-xl scale-105' : 'border-slate-200'} bg-white text-center relative`}>
+        pricing.map((item, index) => (
+          <div key={index} class={`flex flex-col p-8 rounded-2xl border ${item.popular ? 'border-indigo-500 shadow-xl scale-105' : 'border-slate-200'} bg-white text-center relative`}>
+            
             {item.popular && (
               <span class="absolute top-0 right-1/2 translate-x-1/2 -translate-y-1/2 bg-indigo-600 text-white px-3 py-1 rounded-full text-xs font-bold uppercase">
                 Recomendado
               </span>
             )}
+
             <h3 class="text-xl font-bold text-slate-800">{item.name}</h3>
             <p class="text-3xl font-bold mt-4 text-slate-900">{item.price}</p>
             <p class="mt-4 text-slate-500 text-sm">{item.description}</p>
             
             <ul class="mt-8 space-y-4 text-left flex-1">
-              {item.features.map((feature) => (
-                <li class="flex items-center gap-2 text-slate-600 text-sm">
+              {item.features.map((feature, i) => (
+                <li key={i} class="flex items-center gap-2 text-slate-600 text-sm">
                   <Icon name="bx:bx-check" class="w-5 h-5 text-indigo-500" />
                   {feature}
                 </li>
@@ -85,6 +87,7 @@ const pricing = [
                 {item.button}
               </Link>
             </div>
+
           </div>
         ))
       }
