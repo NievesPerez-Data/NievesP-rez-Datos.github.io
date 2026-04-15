@@ -1,7 +1,7 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import Container from "@/components/container.astro";
-import Sectionhead from "@/components/sectionhead.astro";
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
 import { Icon } from "astro-icon/components";
 
 const team = [
@@ -26,6 +26,23 @@ const team = [
 ];
 ---
 
+<style>
+  /* Clase para el degradado de texto basado en vuestro logo */
+  .triad-gradient-text {
+    background: linear-gradient(
+      135deg, 
+      #FFDAB9 0%,   /* Melocotón */
+      #F4A460 30%,  /* Arena */
+      #F08080 60%,  /* Coral */
+      #E6E6FA 100%  /* Lavanda */
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: inline-block;
+  }
+</style>
+
 <Layout title="Sobre Nosotras | TRIAD">
   <Container>
     <Sectionhead>
@@ -33,7 +50,7 @@ const team = [
       <Fragment slot="desc">El poder de la intersección: Datos, Procesos y Diseño.</Fragment>
     </Sectionhead>
 
-    <div class="flex flex-col gap-16 mt-16">
+    <div class="flex flex-col gap-16 mt-16 pb-20">
       <div class="max-w-4xl mx-auto text-center">
         <p class="text-lg leading-relaxed text-slate-600">
           En <strong>TRIAD</strong>, no creemos en las soluciones aisladas. Creemos que la verdadera ventaja competitiva nace donde los datos se encuentran con la eficiencia operativa y una experiencia de usuario impecable. Somos tres profesionales unidas por la infraestructura de <strong>AWS</strong> para transformar la complejidad técnica en claridad estratégica.
@@ -43,12 +60,17 @@ const team = [
       <div class="grid md:grid-cols-3 gap-10">
         {
           team.map((item) => (
-            <div class="group p-8 rounded-2xl border border-slate-200 bg-white hover:border-indigo-500 transition-all text-center flex flex-col items-center">
-              <div class="w-20 h-20 bg-slate-100 rounded-full flex items-center justify-center mb-6 group-hover:bg-indigo-50 transition-colors">
-                <Icon name="bx:bxs-user" class="w-10 h-10 text-slate-400 group-hover:text-indigo-600" />
+            <div class="group p-8 rounded-2xl border border-slate-200 bg-white hover:border-rose-200 hover:shadow-xl transition-all text-center flex flex-col items-center">
+              <div class="w-20 h-20 bg-slate-50 rounded-full flex items-center justify-center mb-6 group-hover:bg-rose-50 transition-colors">
+                <Icon name="bx:bxs-user" class="w-10 h-10 text-slate-300 group-hover:text-rose-400" />
               </div>
               <h3 class="text-xl font-bold text-slate-800">{item.name}</h3>
-              <p class="text-indigo-600 text-sm font-medium mb-4">{item.role}</p>
+              
+              {/* Aplicamos el degradado al Rol */}
+              <p class="triad-gradient-text text-sm font-bold mb-4">
+                {item.role}
+              </p>
+              
               <p class="text-slate-500 text-sm leading-relaxed mb-6 flex-1">
                 {item.desc}
               </p>
@@ -72,20 +94,20 @@ const team = [
         </p>
         <div class="mt-8">
           <a
-            href="/contact"
-            class="bg-black text-white px-8 py-3 rounded-lg hover:bg-slate-800 transition">
+            href="/Aws_Triada_S3.github.io/contact"
+            class="bg-slate-900 text-white px-8 py-3 rounded-lg hover:bg-rose-400 transition-colors">
             ¿Hablamos de tu proyecto?
           </a>
         </div>
       </div>
 
-      <section class="mt-10 py-10 px-6 bg-indigo-50/50 rounded-2xl border-2 border-dashed border-indigo-100">
+      <section class="mt-10 py-10 px-6 bg-orange-50/30 rounded-2xl border-2 border-dashed border-orange-100">
         <div class="max-w-3xl mx-auto text-center">
-          <h4 class="text-xs font-bold uppercase tracking-widest text-indigo-400 mb-4">Proyecto Académico</h4>
+          <h4 class="text-xs font-bold uppercase tracking-widest triad-gradient-text mb-4">Proyecto Académico</h4>
           <p class="text-sm text-slate-600 leading-relaxed italic mb-4">
             Esta página web es <strong>totalmente ficticia</strong> y ha sido realizada como parte de un trabajo grupal para nuestra formación en <strong>AWS re/Start</strong>, impartida por <strong>Adalab</strong> y la <strong>Fundación Nous Cims</strong>. 
           </p>
-          <div class="mt-6 p-6 bg-white/60 rounded-xl shadow-sm border border-white">
+          <div class="mt-6 p-6 bg-white/80 rounded-xl shadow-sm border border-white">
             <p class="text-sm text-slate-700 leading-relaxed">
               El objetivo técnico es demostrar nuestra capacidad para <strong>desplegar una web estática en un bucket de Amazon S3</strong>. Nuestra profesora nos dijo que <strong>"el límite es el cielo"</strong>. Como analistas de datos sin conocimientos previos de programación web, decidimos no conformarnos con lo básico. Hemos querido desafiar nuestros propios límites aprendiendo <strong>Astro</strong> para construir este sitio, demostrando que con curiosidad y la infraestructura de AWS, nosotras también podemos <strong>tocar ese cielo</strong>.
             </p>
