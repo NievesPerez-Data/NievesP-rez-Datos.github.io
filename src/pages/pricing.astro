@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Container from "../components/container.astro";
-import PricingCard from "../components/ui/pricing.astro";
+// CORRECCIÓN: La ruta correcta según tu imagen es ../components/pricing.astro
+import PricingCard from "../components/pricing.astro"; 
 
 const pricing = [
   {
@@ -46,8 +47,12 @@ const pricing = [
 <Layout title="Productos | TRIAD">
   <Container>
     <div class="text-center mt-16">
-      <h1 class="text-4xl lg:text-5xl font-bold text-slate-800">Nuestros Productos</h1>
-      <p class="text-lg mt-4 text-slate-600">Soluciones de datos y Cloud para el mundo real.</p>
+      <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight text-slate-800">
+        Nuestros Productos
+      </h1>
+      <p class="text-lg mt-4 text-slate-600 mx-auto max-w-xl">
+        Soluciones estratégicas para analítica y arquitectura cloud diseñadas para escalar.
+      </p>
     </div>
 
     <div class="grid md:grid-cols-3 gap-10 mt-16 max-w-6xl mx-auto mb-20">
