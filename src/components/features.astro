@@ -42,10 +42,34 @@ const services = [
 ];
 ---
 
-<div class="max-w-6xl mx-auto px-4">
+<div class="max-w-6xl mx-auto px-4 relative">
+  {/* Definimos el degradado de tu logo (melocotón -> coral -> lavanda) como un gradiente CSS reutilizable */}
+  <style>
+    .triad-gradient-text {
+      background: linear-gradient(135deg, #FFDAB9 0%, #F4A460 30%, #F08080 60%, #E6E6FA 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      display: inline-block;
+    }
+    
+    .triad-gradient-icon {
+      /* Replicamos el degradado suave y pastel */
+      fill: url(#triadGradient); 
+    }
+  </style>
+
+  {/* SVG oculto que define el degradado pastel continuo para los iconos */}
+  <svg width="0" height="0" class="absolute">
+    <defs>
+      <linearGradient id="triadGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" style="stop-color:#FFDAB9;stop-opacity:1" /> <stop offset="30%" style="stop-color:#F4A460;stop-opacity:1" /> <stop offset="60%" style="stop-color:#F08080;stop-opacity:1" /> <stop offset="100%" style="stop-color:#E6E6FA;stop-opacity:1" /> </linearGradient>
+    </defs>
+  </svg>
+
   <div class="mt-16 text-center">
     <h2 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">
-      Experiencia 360°: De los datos a la estrategia
+      Experiencia 360°: <span class="triad-gradient-text">De los datos a la estrategia</span>
     </h2>
     <p class="text-lg mt-4 text-slate-600 max-w-2xl mx-auto">
       Unimos analítica avanzada, optimización operativa y diseño de producto bajo la potencia de AWS.
@@ -55,11 +79,15 @@ const services = [
   <div class="grid sm:grid-cols-2 lg:grid-cols-3 mt-16 gap-8">
     {
       services.map((item) => (
-        <div class="flex flex-col items-center text-center p-8 rounded-2xl border border-slate-200 bg-white hover:border-orange-400 hover:shadow-xl transition-all duration-300 group">
-          <div class="bg-orange-50 rounded-xl p-3 w-14 h-14 flex items-center justify-center group-hover:bg-orange-500 transition-colors duration-300">
-            <Icon class="text-orange-500 w-8 h-8 group-hover:text-white" name={item.icon} />
+        <div class="flex flex-col items-center text-center p-8 rounded-2xl border border-slate-200 bg-white hover:border-slate-300 hover:shadow-xl transition-all duration-300 group">
+          
+          {/* Fondo circular muy suave, color neutro para no competir */}
+          <div class="bg-slate-50 rounded-xl p-3 w-14 h-14 flex items-center justify-center group-hover:bg-slate-100 transition-colors duration-300 border border-slate-100">
+            {/* El icono usa la clase CSS que aplica el degradado suave */}
+            <Icon class="triad-gradient-icon w-8 h-8 group-hover:scale-110 transition-transform duration-300" name={item.icon} />
           </div>
-          <h3 class="font-bold text-xl mt-6">{item.title}</h3>
+          
+          <h3 class="font-bold text-xl mt-6 text-slate-900">{item.title}</h3>
           <p class="text-slate-500 mt-3 leading-relaxed text-sm">
             {item.description}
           </p>
