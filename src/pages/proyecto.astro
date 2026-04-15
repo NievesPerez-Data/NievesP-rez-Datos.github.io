@@ -1,0 +1,84 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Container from "../components/container.astro";
+import Sectionhead from "../components/sectionhead.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Propósito del Proyecto | TRIAD">
+  <Container>
+    <Sectionhead>
+      <Fragment slot="title">El Desafío: Web Estática en la Nube</Fragment>
+      <Fragment slot="desc">
+        Este proyecto nace con un objetivo técnico claro: dominar el despliegue profesional de arquitecturas web utilizando Amazon Web Services (AWS).
+      </Fragment>
+    </Sectionhead>
+
+    <div class="mt-16 max-w-4xl mx-auto">
+      <div class="bg-slate-50 p-8 rounded-3xl border border-slate-200 shadow-sm mb-12">
+        <div class="flex items-center gap-4 mb-6">
+          <div class="bg-orange-500 p-3 rounded-xl text-white">
+            <Icon name="bx:bxl-aws" class="size-8" />
+          </div>
+          <h2 class="text-2xl font-bold text-slate-800">Objetivo: Despliegue en AWS S3</h2>
+        </div>
+        <p class="text-lg text-slate-600 leading-relaxed">
+          La meta principal de <strong>TRIAD</strong> ha sido demostrar la capacidad de orquestar y desplegar una web estática optimizada dentro de un <strong>bucket de Amazon S3</strong>. 
+          Este proceso no solo implica subir archivos, sino configurar permisos, políticas de acceso y garantizar la alta disponibilidad que ofrece la infraestructura global de Amazon.
+        </p>
+      </div>
+
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="flex gap-4">
+            <div class="shrink-0">
+                <Icon name="bx:bx-cloud-upload" class="size-8 text-indigo-600" />
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800">Infraestructura como Servicio</h3>
+                <p class="text-slate-600 text-sm mt-1">Gestión de almacenamiento de objetos (S3) para servir contenido de alto rendimiento.</p>
+            </div>
+        </div>
+        <div class="flex gap-4">
+            <div class="shrink-0">
+                <Icon name="bx:bx-code-alt" class="size-8 text-indigo-600" />
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800">Arquitectura Astro</h3>
+                <p class="text-slate-600 text-sm mt-1">Uso de frameworks modernos para generar HTML estático eficiente y ligero.</p>
+            </div>
+        </div>
+        <div class="flex gap-4">
+            <div class="shrink-0">
+                <Icon name="bx:bx-shield-quarter" class="size-8 text-indigo-600" />
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800">Políticas de Acceso</h3>
+                <p class="text-slate-600 text-sm mt-1">Configuración de seguridad y visibilidad pública mediante AWS IAM y Bucket Policies.</p>
+            </div>
+        </div>
+        <div class="flex gap-4">
+            <div class="shrink-0">
+                <Icon name="bx:bx-git-merge" class="size-8 text-indigo-600" />
+            </div>
+            <div>
+                <h3 class="font-bold text-slate-800">Integración Continua</h3>
+                <p class="text-slate-600 text-sm mt-1">Despliegue automatizado para asegurar que cada cambio se refleje en la nube al instante.</p>
+            </div>
+        </div>
+      </div>
+
+      <section class="mt-20">
+        <h2 class="text-center text-2xl font-bold text-slate-800 mb-10">Evidencia del Despliegue</h2>
+        <div class="aspect-video bg-indigo-900 rounded-2xl shadow-2xl flex flex-col items-center justify-center text-white p-6 overflow-hidden">
+           <Icon name="bx:bx-play-circle" class="size-20 mb-4 opacity-50" />
+           <p class="text-center italic opacity-80 max-w-md">
+             Próximamente: Vídeo demostrativo del proceso de configuración en la consola de AWS.
+           </p>
+        </div>
+        <p class="text-center mt-6 text-slate-500 text-sm">
+            Captura real del entorno de trabajo en AWS S3.
+        </p>
+      </section>
+    </div>
+  </Container>
+</Layout>
