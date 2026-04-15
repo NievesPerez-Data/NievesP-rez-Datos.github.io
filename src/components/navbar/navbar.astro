@@ -7,19 +7,15 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 const menuitems = [
   {
     title: "Servicios",
-    path: "#servicios",
+    path: "#servicios", // Esto baja dentro de la misma página
   },
   {
     title: "Productos",
-    path: "/pricing", // O "#pricing" si lo has metido dentro de la misma página principal
-  },
-  {
-    title: "Equipo",
-    path: "#equipo",
+    path: "/pricing",   // Esto busca el archivo src/pages/pricing.astro
   },
   {
     title: "Sobre Nosotras",
-    path: "/about",
+    path: "/about",     // Esto busca el archivo src/pages/about.astro
   },
   {
     title: "Contacto",
